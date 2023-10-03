@@ -28,7 +28,8 @@ count = 0
 path = 'images'
 images = []
 personNames = []
-myList = os.listdir(r"C:\Users\ADMIN\Downloads\Face_Recognition _Attendance_System\Face_Recognition_Project-main\images")
+myList = os.listdir(r'C:\Users\ADMIN\Desktop\My Projects\Face_Recognition _Attendance_System\Face_Recognition_Project-main\images')
+
 print(myList)
 for cu_img in myList:
     current_Img = cv2.imread(f'{path}/{cu_img}')
@@ -38,13 +39,27 @@ for cu_img in myList:
 print(personNames)
 
 
+# def faceEncodings(images):
+#     encodeList = []
+#     for img in images:
+#         img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+#         encode = face_recognition.face_encodings(img)[0]
+#         encodeList.append(encode)
+#     return encodeList
+
 def faceEncodings(images):
     encodeList = []
     for img in images:
         img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
-        encode = face_recognition.face_encodings(img)[0]
-        encodeList.append(encode)
+        
+        # Detect faces in the image
+        face_locations = face_recognition.face_locations(img)
+        
+        if len(face_locations) > 0:
+            encode = face_recognition.face_encodings(img, face_locations)[0]
+            encodeList.append(encode)
     return encodeList
+
 
 
 def attendance(name):
@@ -105,7 +120,7 @@ Label(win, text= "Welcome to face recognition attendance system" ,font= ('Helvet
 #Create a button to open a New Window
 ttk.Button(win, text="Check Attendance", command=open_win).pack()
 ttk.Button(win,text = "Mark Attendance" , command= mark_win).pack()
-ttk.Button(win,text = "Add Candidate", command= lambda : os.system(r"C:\Users\ADMIN\Downloads\Face_Recognition _Attendance_System\upload_tkinter\main.py")).pack()
+ttk.Button(win,text = "Add Candidate", command= lambda : os.system(r'"C:\Users\ADMIN\Desktop\My Projects\Face_Recognition _Attendance_System\upload_tkinter\main.py"')).pack()
 
 win.mainloop()
 

@@ -68,16 +68,16 @@ def retrieve_input():
         filepath = sys.argv[1]
 
     print("Output file to: " + filepath)
-    prevImg.save(r"C:\Users\ADMIN\Downloads\Face_Recognition _Attendance_System\Face_Recognition_Project-main\photos\{}".format(filepath))
+    prevImg.save(r"C:\Users\ADMIN\Desktop\My Projects\Face_Recognition _Attendance_System\upload_tkinter\Photos\{}".format(filepath))
     # png_img = cv2.imread(r'C:\Users\RAM\PycharmProjects\Face_Recognition_Project-main\images\{}'.format(filepath))
     #
     # # converting to jpg file
     # # saving the jpg file
     # cv2.imwrite(filepath+'.jpg', png_img, [int(cv2.IMWRITE_JPEG_QUALITY), 100])
-    im = Image.open(r"C:\Users\ADMIN\Downloads\Face_Recognition _Attendance_System\Face_Recognition_Project-main\photos\{}".format(filepath))
+    im = Image.open(r"C:\Users\ADMIN\Desktop\My Projects\Face_Recognition _Attendance_System\upload_tkinter\Photos\{}".format(filepath))
     rgb_im = im.convert('RGB')
     filepath2 = (inputValue+".jpg")
-    rgb_im.save(r"C:\Users\ADMIN\Downloads\Face_Recognition _Attendance_System\Face_Recognition_Project-main\images\{}".format(filepath2))
+    rgb_im.save(r"C:\Users\ADMIN\Desktop\My Projects\Face_Recognition _Attendance_System\Face_Recognition_Project-main\images\{}".format(filepath2))
     mainWindow.quit()
     print(inputValue)
 
